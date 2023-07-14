@@ -1,25 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return(
+    <>
+      <div className="result">
+        <h2 className="result-title">조아빈님과 어울리는 두부는 
+        <br/>
+        <span className="result-tofuType">
+        흰 두부
+        </span> 입니다.
+        </h2>
+      </div>
+      <div className="result-box">
+        <div className="result-box__analyze">
+            <div className="result-box__analyze--tofuTypeImg">
+            </div>
+            <div className="result-box__analyze--analysisTable"> 
+
+            </div>
+        </div>
+      </div>
+      <h1>추천 상품</h1>
+      <div className="result-bestWorst">
+        <div className="result-best"></div>
+        <div className="result-worst"></div>
+      </div>
+      <div className="result-bestWorstText">
+        <div className="result-bestWorstText__best">
+          <h2>Best</h2>
+          <p>베스트</p>
+        </div>
+        <div className="result-bestWorstText__worst">
+          <h2>Worst</h2>
+          <p>워스트</p>
+        </div>
+      </div>
+      <div className="btn-box">
+        <button className="btn btn-replay">다시 테스트하기</button>
+        <button className="btn btn-statistics">유형별 통계 보기</button>
+        <button className="btn btn-allTypes">모든 유형 보기</button>
+      </div>
+    </>
+  )
 }
 
 export default App;
