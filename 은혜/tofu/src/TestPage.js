@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './TestPage.css';
 
 const Questions = [
   // 질문 리스트
@@ -39,17 +40,20 @@ const TestPage = () => {
   const progressBarStyle = { width: progressBarWidth };
 
   return (
-    <div>
-      <div className="progress-bar">
-        <div className="progress" style={progressBarStyle}></div>
+    <div className="test-page">
+      <div className="progress-bar-container">
+        <div className="progress-bar" style={progressBarStyle}></div>
       </div>
-      <h3>{Questions[currentQuestion]}</h3>
-      <div>
-        <button onClick={() => handleAnswer('a')}>
+      <div className="progress-number">{currentQuestion + 1}/{Questions.length}</div>
+      <div className="question-container">
+        <h3 className="question">{Questions[currentQuestion]}</h3>
+      </div>
+      <div className="answer-buttons">
+        <button onClick={() => handleAnswer('a')} className="answer-button">
           a 답변
         </button>
-        <span>vs</span>
-        <button onClick={() => handleAnswer('b')}>
+        <span className="vs-text">vs</span>
+        <button onClick={() => handleAnswer('b')} className="answer-button">
           b 답변
         </button>
       </div>

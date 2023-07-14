@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Routes, Route } from 'react-router-dom';
 import TestPage from './TestPage';
+import tofuImage from './tofu-image.png';
+import './App.css';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,21 +14,21 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      {isLoggedIn ? (
-        <Routes>
-          <Route path="/test" element={<TestPage />} />
-        </Routes>
-      ) : (
-        <header className="App-header">
-          <p>두부로 알아보는 성격유형 테스트</p>
-          <p>내가 두부라면</p>
-          <p>어떤 두부?</p>
-          <img src="두부 이미지 URL" alt="두부 이미지" />
-          <button className='loginbtn' onClick={handleKakaoLogin}>
+    <div className="app-container">
+      {!isLoggedIn ? (
+        <header className="app-header">
+          <p className="app-title">두부로 알아보는 성격유형 테스트</p>
+          <div className="app-subtitle">내가 두부라면</div>
+          <div className="app-subtitle">어떤 두부?</div>
+          <img src={tofuImage} alt="두부 이미지" className="app-image" />
+          <button className="login-button" onClick={handleKakaoLogin}>
             카카오톡 로그인
           </button>
         </header>
+      ) : (
+        <Routes>
+          <Route path="/test" element={<TestPage />} />
+        </Routes>
       )}
     </div>
   );
