@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Routes, Route } from 'react-router-dom';
 import TestPage from './TestPage';
+import TestResultPage from './TestResultPage'; // TestResultPage 컴포넌트를 import 합니다.
 import tofuImage from './tofu-image.png';
 import './App.css';
 
@@ -28,6 +29,8 @@ const App = () => {
       ) : (
         <Routes>
           <Route path="/test" element={<TestPage />} />
+          {/* /result 경로에 TestResultPage 컴포넌트를 연결합니다. */}
+          <Route path="/result" element={<TestResultPage />} />
         </Routes>
       )}
     </div>
