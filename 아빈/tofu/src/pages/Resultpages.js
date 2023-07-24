@@ -1,11 +1,21 @@
-import '../resultpages.css';
-import Button from '../Button';
+import axios from 'axios';
+import '../css/resultpages.css';
+import ResultpageButton from '../resultpagebtn';
+import { useEffect, useState } from 'react';
+
 
 function Resultpages() {
+  const [response, setResponse] = useState('');
+  useEffect(() => {
+    axios.get('/mbti')
+    .then(response => setResponse(response))
+    .catch(error => console.log(error))
+  }, []);
+  console.log(setResponse);
   return(
     <>
       <div className="result">
-        <h2 className="result-title">조아빈님과 어울리는 두부는 
+        <h2 className="result-title">{response.name}님과 어울리는 두부는 
         <br/>
         <span className="result-tofuType">
         흰 두부
@@ -35,7 +45,7 @@ function Resultpages() {
           <p>워스트</p>
         </div>
       </div>
-      <Button />
+      <ResultpageButton />
     </>
   )
 }
